@@ -5,8 +5,8 @@ import HTMLWebpackPlugin from 'html-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 // allowing us to use dotenv
-const dotenv = require('dotenv'); 
-dotenv.config(); 
+import dotenv from 'dotenv';
+dotenv.config({path: '.env'});
 
 // to allow the use of __dirname
 import { fileURLToPath } from 'url';
