@@ -2,6 +2,11 @@ const express = require('express');
 const app = express();
 const PORT = 3000;
 
+// importing dotenv files
+// This allows us to use our API keys in the .env files
+import dotenv from "dotenv";
+dotenv.config();
+
 // allows parsing of json responses
 app.use(express.json());
 
