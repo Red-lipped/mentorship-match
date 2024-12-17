@@ -1,5 +1,5 @@
-# FullStackTemplate
+# Mentorship Match
 
-Creating a template with folders and files for future fullstack projects. 
+We are solving the issue of not having a professional network specific to STEM fields. There may be platforms out there to connect with professionals, but not necessarily surrounding the themes of mentorship and networking in STEM. 
 
-The frameworks used are React and Express. Webpack is configured for appropriate rendering once testing. 
+We bring a platform in order to give users the opportunity to become mentors, or be a mentee, with STEM professionals. We allow you to specify your STEM field of interest in order to connect with professionals and students.
