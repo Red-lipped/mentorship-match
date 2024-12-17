@@ -4,6 +4,10 @@ import path from 'path';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
+// allowing us to use dotenv
+const dotenv = require('dotenv'); 
+dotenv.config(); 
+
 // to allow the use of __dirname
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
