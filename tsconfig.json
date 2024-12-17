@@ -4,7 +4,7 @@
       "moduleResolution": "nodenext",
       "jsx": "react-jsx", //& indicates that React's JSX syntax should be recognized
       "target": "ES2022", //& this is ES6
-      "module": "NodeNext", //& Olivia suggests to use "NodeNext" as CommonJS is outdat
+      "module": "NodeNext", //& Olivia suggests to use "NodeNext" as CommonJS is outdated
       "noImplicitAny": true, //&requires that variables/params have explicit types
       "removeComments": true, //& removes all comments from compiled JS
       "sourceMap": true, //& generates .map files; maps compiled JS to TS (for debugging)
