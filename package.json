@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "webpack.config.js",
+  "type": "module",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot && nodemon server.js",
     "build": "webpack --mode production",
@@ -15,8 +16,7 @@
   "dependencies": {
     "express": "^4.21.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "ts-loader": "^9.5.1"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.26.0",
@@ -29,6 +29,7 @@
     "sass": "^1.82.0",
     "sass-loader": "^16.0.4",
     "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.1",
     "webpack": "^5.97.1",
     "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^5.1.4",
