@@ -4,6 +4,11 @@ const PORT = 3000;
 import  { Request, Response, NextFunction } from 'express';
 import { ServerError } from './types.ts';
 
+// importing dotenv files
+// This allows us to use our API keys in the .env files
+import dotenv from "dotenv";
+dotenv.config();
+
 // allows parsing of json responses
 app.use(express.json());
 
