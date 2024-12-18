@@ -5,16 +5,19 @@
   "main": "webpack.config.js",
   "type": "module",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open --hot && nodemon server.js",
+    "start": "concurrently \"webpack-dev-server --mode development --open --hot\" \"nodemon --exec tsx ./server/server.ts\"",
     "build": "webpack --mode production",
-    "dev": "nodemon server/server.ts",
+    "dev": "nodemon --exec tsx ./server/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Ashley Bisram",
   "license": "ISC",
   "dependencies": {
+    "@types/jsonwebtoken": "^9.0.7",
+    "concurrently": "^9.1.0",
     "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
@@ -23,6 +26,7 @@
     "@babel/preset-env": "^7.26.0",
     "@babel/preset-react": "^7.26.3",
     "@babel/preset-typescript": "^7.26.0",
+    "@types/bcrypt": "^5.0.2",
     "@types/cors": "^2.8.17",
     "babel-loader": "^9.2.1",
     "bcrypt": "^5.1.1",
@@ -37,7 +41,6 @@
     "sass-loader": "^16.0.4",
     "style-loader": "^4.0.0",
     "ts-loader": "^9.5.1",
-    "ts-node": "^10.9.2",
     "typescript": "^5.7.2",
     "webpack": "^5.97.1",
     "webpack-bundle-analyzer": "^4.10.2",

@@ -76,5 +76,9 @@ export default {
         type: 'asset/resource',
       },
     ],
+    resolve: {
+      extensions: ['.tsx', '.ts', '.js', '.jsx']
+    },
+    
   },
 };
