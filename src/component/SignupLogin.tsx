@@ -7,8 +7,8 @@ const SignupLogin: React.FC = (): JSX.Element => {
     // Toggle Between Sign Up / Login
     const goRight = document.getElementById("goRight");
     const goLeft = document.getElementById("goLeft");
-    const slideBox = document.getElementById("slideBox");
-    const topLayer = document.querySelector(".topLayer");
+    const slideBox = document.getElementById("slideBox") as HTMLElement;
+    const topLayer = document.querySelector(".topLayer") as HTMLElement;
 
     if (goRight) {
       goRight.addEventListener("click", () => {
@@ -29,9 +29,9 @@ const SignupLogin: React.FC = (): JSX.Element => {
     }
 
     // Initialize Canvas with paper.js
-    paper.setup(document.getElementById("canvas"));
+    paper.setup(document.getElementById("canvas") as HTMLCanvasElement);
     let shapeGroup = new paper.Group();
-    let positionArray = [];
+    let positionArray: { x: number; y: number }[] = [];
 
     function getCanvasBounds() {
       const canvasWidth = paper.view.size.width;
@@ -79,7 +79,7 @@ const SignupLogin: React.FC = (): JSX.Element => {
 
     initializeShapes();
 
-    paper.view.onFrame = (event) => {
+    paper.view.onFrame = (event: paper.IFrameEvent) => {
       if (event.count % 4 === 0) {
         shapeGroup.children.forEach((child, i) => {
           child.rotate(i % 2 === 0 ? -0.1 : 0.1);
