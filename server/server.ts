@@ -1,6 +1,6 @@
 import express from "express";
 import { Request, Response, NextFunction } from 'express';
-import { ServerError } from './types.ts';
+import {ServerError} from './types.js';
 import mongoose from 'mongoose';
 import cors from 'cors';
 
@@ -30,7 +30,7 @@ mongoose
   });
 
 // importing a router
-import userRouter from './routes/users.ts'
+import userRouter from './routes/users.js'
 app.use('/users', userRouter);
 
 // CREATE

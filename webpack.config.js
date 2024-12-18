@@ -48,7 +48,9 @@ export default {
     compress: true,
     historyApiFallback: true,
   },
-
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js', '.jsx']
+  },
   module: {
     rules: [
       {
@@ -76,9 +78,5 @@ export default {
         type: 'asset/resource',
       },
     ],
-    resolve: {
-      extensions: ['.tsx', '.ts', '.js', '.jsx']
-    },
-    
   },
 };
