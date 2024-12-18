@@ -1,19 +1,36 @@
-const express = require('express');
-const app = express();
-const PORT = 3000;
+import express from "express";
 import { Request, Response, NextFunction } from 'express';
-import { ServerError } from './types.js';
+import {ServerError} from './types.js';
+import mongoose from 'mongoose';
+import cors from 'cors';
+
+const app = express();
+const PORT:number = 8080;
 
 // importing dotenv files
 // This allows us to use our API/URI keys in the .env files
 import dotenv from 'dotenv';
-dotenv.config({path: '../.env'});
+dotenv.config({path: './.env'});
 
+//allow cors to allow all origins
+app.use(cors());
 // allows parsing of json responses
 app.use(express.json());
 
+// add connection to MongoDB Atlas
+const MONGOURL = process.env.MONGOURL;
+// console.log(MONGOURL);
+
+mongoose
+  .connect(MONGOURL)
+  .then(() => console.log('Connected to MongoDB successfully! '))
+  .catch((err) => {
+    console.error(`Failed to connect to MongoDB: ${err.message}`);
+    process.exit(1);
+  });
+
 // importing a router
-const userRouter = require('./routes/users.js');
+import userRouter from './routes/users.js'
 app.use('/users', userRouter);
 
 // CREATE
@@ -26,7 +43,7 @@ app.post('/', (req: Request, res: Response):void => {
 // READ
 app.get('/', (req: Request, res: Response):void => {
   console.log('here');
-  res.status(200).json({ message: 'GET request ran auccessfully.' });
+  res.status(200).json({ message: 'GET request ran successfully.' });
 });
 
 // UPDATE
@@ -56,10 +73,9 @@ app.use(
   }
 );
 
-app.listen(PORT, (error:ServerError):void => {
-  if (!error)
+// App listening event
+app.listen((PORT:number):void => {
     console.log(
       'Server is Successfully Running, and App is listening on port ' + PORT
     );
-  else console.log("Error occurred, server can't start", error);
 });
