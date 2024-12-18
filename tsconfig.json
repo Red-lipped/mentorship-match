@@ -12,5 +12,8 @@
 
     },
     "include": ["src/**/*", "server/**/*"], //& recursively includes all TS files within 'src' & subdirectories
-    "exclude": ["node_modules", "dist"] //["**/*.db.json", "**/*.index.html", "**/*.style.css"]
+    "exclude": ["node_modules", "dist"], //["**/*.db.json", "**/*.index.html", "**/*.style.css"]
+    "ts-node": {
+        "esm": true,
+    }
 }
