@@ -47,10 +47,10 @@ app.get('/', (req: Request, res: Response):void => {
 });
 
 // UPDATE
-app.put('/update', (res: Response, req: Request):void => {});
+app.put('/update', (req: Request, res: Response):void => {});
 
 // DELETE
-app.delete('/delete', (res: Response, req: Request):void => {});
+app.delete('/delete', (req: Request, res: Response):void => {});
 
 // global error handler
 app.use(
