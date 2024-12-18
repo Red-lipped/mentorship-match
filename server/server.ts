@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 
 const app = express();
-const PORT:number = 8080;
+const PORT = 8080;
 
 // importing dotenv files
 // This allows us to use our API/URI keys in the .env files
@@ -74,7 +74,7 @@ app.use(
 );
 
 // App listening event
-app.listen((PORT:number):void => {
+app.listen(PORT, () => {
     console.log(
       'Server is Successfully Running, and App is listening on port ' + PORT
     );
