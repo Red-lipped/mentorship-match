@@ -9,8 +9,6 @@
     "removeComments": true, //& removes all comments from compiled JS
     "sourceMap": true, //& generates .map files; maps compiled JS to TS (for debugging)
     "esModuleInterop": true, //& becuase ES6 modules and CommonJS modules work diff under the hood, modules imported via the 'require' keyword will ....
-    "allowImportingTsExtensions": true,//this works only with below noEmit set to true
-    "noEmit": true,
   },
   "include": ["src/**/*", "server/**/*"], //& recursively includes all TS files within 'src' & subdirectories
   "exclude": ["node_modules", "dist"], //["**/*.db.json", "**/*.index.html", "**/*.style.css"]
