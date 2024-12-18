@@ -1,5 +1,3 @@
-
-
 import express from "express";
 import bcrypt from "bcrypt"; // needs `npm i --save-dev @types/bcrypt`
 import jwt from "jsonwebtoken"; // needs `npm install jsonwebtoken`
@@ -78,9 +76,12 @@ router.post('/login', async (req: Request, res: Response) => {
 });
 
 // User Update Router - for specific settings on a user's profile
+// We use patch to only allow specified fields to be changed
 router.patch('/', async (req: Request, res: Response) => {
     try {
-        const {nickName, password, } = req.params;
+        const {nickName, password, email} = req.params;
+
+        const userUpdate = await UserModel.findOneAndUpdate({nickName, password, email}, () => {})
         
     } catch (error) {
         console.error("Update Error:", error);
@@ -89,8 +90,11 @@ router.patch('/', async (req: Request, res: Response) => {
 })
 
 // Delete User Router
-router.delete('/', async (req: Request, res: Response) => {
+router.delete('/:id', async (req: Request, res: Response) => {
     try {
+        const { id } = req.params;
+
+        const userDelete = await UserModel.findByIdAndDelete({_id: id}, () => {})
         
     } catch (error) {
         console.error("Deletion Error:", error);
