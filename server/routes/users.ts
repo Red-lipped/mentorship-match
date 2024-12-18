@@ -2,7 +2,7 @@ import express from "express";
 import bcrypt from "bcrypt"; // needs `npm i --save-dev @types/bcrypt`
 import jwt from "jsonwebtoken"; // needs `npm install jsonwebtoken`
 import { Request, Response } from "express";
-import UserModel from "../model.ts"; // Import the User schema
+import UserModel from "../model.js"; // Import the User schema
 
 const router = express.Router();
 
