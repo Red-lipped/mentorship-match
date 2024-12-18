@@ -6,12 +6,8 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 // allowing us to use dotenv
 import dotenv from 'dotenv';
-<<<<<<< HEAD
-dotenv.config();
-=======
 dotenv.config({path: '.env'});
 
->>>>>>> 7832bb778d46a6882c16d81b952db78b520b4592
 // to allow the use of __dirname
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
