@@ -5,9 +5,8 @@ import HTMLWebpackPlugin from 'html-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 // allowing us to use dotenv
-const dotenv = require('dotenv'); 
-dotenv.config(); 
-
+import dotenv from 'dotenv';
+dotenv.config();
 // to allow the use of __dirname
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -70,6 +69,10 @@ export default {
       {
         test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.css$/, // Matches plain CSS files
+        use: ['style-loader', 'css-loader'], // Processes CSS files
       },
       {
         test: /\.(png|jpeg|jpg|svg|gif)$/i, //i allows our file names to be case insensitive
