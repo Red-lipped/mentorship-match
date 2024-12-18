@@ -1,31 +1,12 @@
-// const express = require("express")
-// const router = express.Router()
-// import { Request, Response, NextFunction } from 'express';
-
-// // import the Schema so we can manipulate
 
 
-// router.get('/', (req: Request,res:Response) => {
-//     res.status(200).json({message: 'user list'})
-// })
-
-// // we need to encrypt our password to create a new user
-// router.post('/new', (req: Request,res:Response) => {
-//     res.status(200).json({message: 'new user form'})
-// })
-
-// //
-// router.put('/update', (req:Request, res:Response)=>{
-
-// })
-
-// module.exports = router
-const express = require("express");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-const router = express.Router();
+import express from "express";
+import bcrypt from "bcrypt"; // needs `npm i --save-dev @types/bcrypt`
+import jwt from "jsonwebtoken"; // needs `npm install jsonwebtoken`
 import { Request, Response } from "express";
-import UserModel from "../model.js"; // Import the User schema
+import UserModel from "../model.ts"; // Import the User schema
+
+const router = express.Router();
 
 // User Signup Route
 router.post('/signup', async (req: Request, res: Response) => {
@@ -96,4 +77,28 @@ router.post('/login', async (req: Request, res: Response) => {
     }
 });
 
-module.exports = router;
+// User Update Router - for specific settings on a user's profile
+router.patch('/', async (req: Request, res: Response) => {
+    try {
+        const {nickName, password, } = req.params;
+        
+    } catch (error) {
+        console.error("Update Error:", error);
+        res.status(500).json({ message: "Internal Server Error" });
+    }
+})
+
+// Delete User Router
+router.delete('/', async (req: Request, res: Response) => {
+    try {
+        
+    } catch (error) {
+        console.error("Deletion Error:", error);
+        res.status(500).json({ message: "Internal Server Error" });
+    }
+})
+
+
+
+
+export default router;
