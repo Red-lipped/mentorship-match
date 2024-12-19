@@ -9,10 +9,11 @@ const App = () => {
 
   return (
     <div className="page-container">
-      <img
-        src= {Logo}
-        alt= "logo"
-        />
+        <nav className='nav'>
+        <a href='#' className='nav-links'>Dashboard</a>
+        <a href='#' className='nav-links'>Forum</a>
+        </nav>
+
       <div className="content">
         {showSignup ? (
           <SignupLoginPage />
@@ -20,6 +21,7 @@ const App = () => {
           <LandingPage onSignupClick={() => setShowSignup(true)} />
         )}
       </div>
+
       <Footer />
     </div>
   );
