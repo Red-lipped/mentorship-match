@@ -75,16 +75,17 @@ function UsersPage() {
       {/* <NavBar /> */}
       <h1>Find your mentor</h1>
 
-      <div>
+      <div className='searchbar-container'>
         <input
           type='text'
           placeholder='Search users...'
           value={searchTerm}
           onChange={handleSearch}
+          className='search-bar'
         />
 
-      {/* Dropdown for STEM fields */}
-      <select value={selectedField} onChange={handleFieldChange}>
+        {/* Dropdown for STEM fields */}
+        <select value={selectedField} onChange={handleFieldChange} className='field-dropdown'>
           <option value=''>All Fields</option>
           {stemFields.map((field) => (
             <option key={field} value={field}>
@@ -92,32 +93,35 @@ function UsersPage() {
             </option>
           ))}
         </select>
-
       </div>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredUsers.map((user) => (
-            <tr key={user._id}>
-              <td>{user.nickName}</td>
-              <td>{user.email}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
 
-      {/* random inspirational quote*/}
-      <div>
-        <h4>
-          "Sometimes I'll start a sentence and I don't even know where it's
-          going. I just hope I find it along the way."
-        </h4>
+      <div className='user-content'>
+        <div className='user-list'>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredUsers.map((user) => (
+                <tr key={user._id}>
+                  <td>{user.nickName}</td>
+                  <td>{user.email}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        {/* random inspirational quote*/}
+        <div className='quote'>
+          <h4>
+            "Sometimes I'll start a sentence and I don't even know where it's
+            going. I just hope I find it along the way."
+          </h4>
+        </div>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-/*Default Styling**/ 
+/*Default Styling**/
 * {
     background-color: white;
 }
@@ -106,3 +106,73 @@ body {
 
 
 /* UsersPage Styling */
+.search-bar-container {
+  display: flex;
+  align-items: center; /* Vertically center the input and select */
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  padding: 10px;
+  margin-right: 10px; /* Space between the search bar and dropdown */
+  width: 200px; /* Set width of search bar */
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  transition: all 0.3s ease; /* Smooth transition for focus effect */
+}
+
+.search-bar:focus {
+  outline: none;
+  border-color: #4c81af; /* Green border when focused */
+  box-shadow: 0 0 5px rgba(76, 129, 175, 0.5); /* Green glow effect */
+}
+
+.field-dropdown {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.field-dropdown:focus {
+  outline: none;
+  border-color: #4c81af; /* Green border when focused */
+  box-shadow: 0 0 5px rgba(76, 129, 175, 0.5); /* Green glow effect */
+}
+
+.user-content {
+  display: flex; /* Use Flexbox to align items horizontally */
+  justify-content: space-between; /* Add space between user list and quote */
+  margin-top: 20px;
+}
+
+.user-list {
+  flex: 1; /* User list takes up remaining space */
+  margin-right: 20px; /* Add space between the list and the quote */
+}
+
+.quote {
+  flex: 0 0 300px; /* Fixed width for the quote */
+  background-color: #f4f4f4; /* Light background for the quote */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
