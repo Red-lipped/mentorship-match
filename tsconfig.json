@@ -9,11 +9,10 @@
     "removeComments": true, //& removes all comments from compiled JS
     "sourceMap": true, //& generates .map files; maps compiled JS to TS (for debugging)
     "esModuleInterop": true, //& becuase ES6 modules and CommonJS modules work diff under the hood, modules imported via the 'require' keyword will ....
+    "typeRoots": ["./node_modules/@types", "./types/custom.d.ts", "./server/types"] ,
   },
   "include": ["./src/**/*", "./server/**/*", "./public/**/*"], //& recursively includes all TS files within 'src', 'server', 'public' & subdirectories
   "exclude": ["node_modules", "dist"], //["**/*.db.json", "**/*.index.html", "**/*.style.css"]
 }
 
-// look into watching certain files in our server --> this can be a nodemon config or in our package.json scripts
-// look at ts-node docs
 // tsx might be simpler to use
