@@ -25,7 +25,7 @@ function UsersPage() {
   }, []);  
 
   const fetchUsers = async () => { // Changed to async function  
-    const response = await fetch(`http://localhost:3000/users/`); // Added http:// and corrected CORS  
+    const response = await fetch(`http://localhost:3000/users/page`); // Added http:// and corrected CORS  
     if (!response.ok) {  
       throw new Error('Network response was not ok');  
     }  
@@ -40,12 +40,12 @@ function UsersPage() {
     const search = searchTerm.toLowerCase();  
     return (  
       user.nickName.toLowerCase().includes(search) ||  
-      user.email.toLowerCase().includes(search)  
+      user.email.toLowerCase().includes(search)  //include every criteria searchable in the Mongoose schema
     );  
   });  
 
   return (  
-    <div>  
+    <div className='userspage'>  
       <h1>Users</h1>  
 
       <input   
