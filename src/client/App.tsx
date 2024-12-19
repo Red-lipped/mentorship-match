@@ -4,13 +4,19 @@ import Footer from "../component/Footer";
 import LandingPage from "../component/LandingPage";
 import NavBar from "../component/NavBar";
 import Forum from "../component/ProfileDashboard";
+import UsersPage from "../component/UsersPage"; 
 
 const App = () => {
   const [showSignup, setShowSignup] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [showForum, setShowForum] = useState(false);
 
   const handleLoginSuccess = () => {
     setIsLoggedIn(true);
+  };
+
+  const handleShowForum = () => {
+    setShowForum(true);
   };
 
   return (
@@ -18,8 +24,14 @@ const App = () => {
       <NavBar />
       <div className="content">
         {isLoggedIn ? (
-          // If user is logged in, show profile dashboard
-          <Forum />
+          showForum ? (
+            <UsersPage />
+          ) : (
+            <>
+              <Forum />
+              <button onClick={handleShowForum}>Forum</button>
+            </>
+          )
         ) : showSignup ? (
           <SignupLoginPage onLoginSuccess={handleLoginSuccess} />
         ) : (

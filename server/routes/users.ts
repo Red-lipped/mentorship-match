@@ -219,7 +219,10 @@ const router = express.Router();
 // Get logged-in user
 router.get('/me', controller.verifyToken, async (req: Request, res: Response) => {
   try {
-    const user = await UserModel.findById(req.userId).select('-password');
+    const { userId } = req as Request & { userId?: string };
+    if (!userId) return res.status(401).json({ message: 'User ID not found in request.' });
+
+    const user = await UserModel.findById(userId).select('-password');
     if (!user) return res.status(404).json({ message: "User not found." });
     res.status(200).json(user);
   } catch (error) {
@@ -227,6 +230,7 @@ router.get('/me', controller.verifyToken, async (req: Request, res: Response) =>
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
+
 
 // Get specific User Route 
 router.get('/:id', async (req: Request, res: Response) => {  
