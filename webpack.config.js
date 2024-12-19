@@ -3,6 +3,8 @@
 import path from 'path';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+// testing 
+import CopyPlugin from 'copy-webpack-plugin';
 
 // allowing us to use dotenv
 import dotenv from 'dotenv';
@@ -18,7 +20,7 @@ const __dirname = dirname(__filename);
 export default {
   mode: 'development',
   // tell Webpack where the entrypoint of our application is
-  entry: './src/client/index.js', //this will create a dependency graph
+  entry: './src/client/index.tsx', //this will create a dependency graph
 
   output: {
     path: path.join(__dirname, 'dist'),
@@ -29,11 +31,20 @@ export default {
 
   plugins: [
     new HTMLWebpackPlugin({
-      title: 'Template',
+      title: 'Mentorship Match',
       filename: 'index.html',
-      template: './src/public/index.html',
+      template: './public/index.html',
     }),
     new BundleAnalyzerPlugin(),
+    new CopyPlugin({
+      patterns: [
+          {
+              from: path.resolve(__dirname, 'public', 'assets'),
+              to: path.join(__dirname, 'dist', 'images'),
+              noErrorOnMissing: true
+          }
+      ]
+  }),
   ],
 
   devtool: 'source-map', // this allows us to see what files are taking up a certain amt of space

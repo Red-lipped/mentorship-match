@@ -33,6 +33,10 @@ mongoose
 import userRouter from './routes/users.js'
 app.use('/users', userRouter);
 
+// Attempting to serve static files
+app.use(express.static('../public/assets'));
+
+
 // CREATE
 app.post('/', (req: Request, res: Response):void => {
   const { name } = req.body;

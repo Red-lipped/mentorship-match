@@ -1,10 +1,10 @@
 import React, { useEffect, useState, JSX } from "react";
 
-const Forum = () => {
+const Forum = ():JSX.Element => {
 
     return(
-        <div>
-        <p className='hi'>HI!</p>
+        <div className='dashboard'>
+        <p>Hi from the Dashboard!</p>
         </div>
     );
 }

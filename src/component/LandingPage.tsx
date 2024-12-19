@@ -1,30 +1,7 @@
-// import React, { JSX, useEffect, useState } from "react";
-// // import { useNavigate } from "react-router-dom";
-
-
-// const LandingPage = ():JSX.Element => {
-//     const navigate = useNavigate();
-//     const handleSignupRedirect = () => {
-//         navigate("/SignupLogin"); // Update '/signup' with the correct path to your Signup page.
-//       };
-    
-    
-//     return (
-//         <div className="landing-page">
-//           <div className="landing-content">
-//             <h1>Welcome to Mentorship Match</h1>
-//             <p>Your journey to find the perfect mentor or mentee starts here.</p>
-//             <button onClick={handleSignupRedirect}>Sign Up Now</button>
-//           </div>
-//         </div>
-//       );
-//     };
-
-
-// export default LandingPage;
-
-
 import React, { JSX } from "react";
+import  NavBar from "./NavBar";
+import Footer from "./Footer";
+
 
 interface LandingPageProps {
   onSignupClick: () => void;
@@ -33,11 +10,48 @@ interface LandingPageProps {
 const LandingPage = ({ onSignupClick }: LandingPageProps): JSX.Element => {
   return (
     <div className="landing-page">
+      {/* <NavBar /> */}
       <div className="landing-content">
         <h1>Welcome to Mentorship Match</h1>
         <p>Your journey to find the perfect mentor or mentee starts here.</p>
         <button onClick={onSignupClick}>Sign Up Now</button>
+        <ul className="landing-links">
+          <li>
+            <h3>Join our mentee list</h3>
+            <img
+              src="public/assets/sigmund-unsplash.jpg"
+              alt="Join our mentee list"
+              className="link-img"
+            />
+          </li>
+          <li>
+            <h3>Check out our newest Mentors</h3>
+            <img
+              src="public/assets/sigmund-unsplash.jpg"
+              alt="Check out our newest Mentors"
+              className="link-img"
+            />
+          </li>
+          <li>
+            <h3>Hear success stories</h3>
+            <img
+              src="public/assets/sigmund-unsplash.jpg"
+              alt="Hear success stories"
+              className="link-img"
+            />
+          </li>
+          <li>
+            <h3>Watch growth and inspirational videos</h3>
+            <img
+              src="public/assets/sigmund-unsplash.jpg"
+              alt="Watch growth and inspirational videos"
+              className="link-img"
+            />
+          </li>
+        </ul>
+        <h1>Make your STEM connections today!</h1>
       </div>
+      {/* <Footer/> */}
     </div>
   );
 };

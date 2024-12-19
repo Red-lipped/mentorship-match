@@ -1,23 +1,10 @@
-
-
-// <uniquifier>: Use a unique and descriptive class name
-// <weight>: Use a value from 100 to 900
-
-.page-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+/*Default Styling**/ 
+* {
+    background-color: white;
 }
 
-.content {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 body {
-  margin: 0;
     font-family: "Raleway", sans-serif;
     font-optical-sizing: auto;
     // font-weight: <weight>;
@@ -44,7 +31,7 @@ body {
     border-radius: 2rem;
 }
 
-/* Landing Component**/
+/* LandingPage Component**/
 .landing {
   display: flex;
   flex-direction: column;
@@ -85,67 +72,37 @@ body {
 
 /* SignupLogin */
 
-body {
+.forms-page {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: gray; 
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.forms-page {
-  background: rgba(255, 255, 255, 0.8);
-  padding: 20px;
-  border-radius: 8px;
-}
-
-.forms-container {
-  display: flex;
-  gap: 50px;
-
-}
-
-.signup-form, .login-form {
+.signup-form,
+.login-form {
   display: flex;
   flex-direction: column;
   max-width: 300px;
+  margin: 20px auto;
 }
 
-.signup-form h2, .login-form h2 {
-  margin-bottom: 20px;
-}
-
-.signup-form label, .login-form label {
-  margin-bottom: 10px;
-  display: flex;
-  flex-direction: column;
-}
-
-.radio-group {
-  display: flex;
-  gap: 10px;
+.signup-form label,
+.login-form label {
   margin-bottom: 10px;
 }
 
-button {
+.signup-form button,
+.login-form button {
   margin-top: 10px;
   padding: 8px;
   cursor: pointer;
   background: rgba(253,187,45,1);
 }
 
-/* SignupLogin */
 
-/* Footer */
+/* ProfileDashboard Styling */
 
-.page-footer {
-  width: 100%;
-  text-align: center;
-  font-size: 14px;
-  padding: 10px;
-}
 
-/* Footer */
+
+
+/* UsersPage Styling */
