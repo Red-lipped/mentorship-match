@@ -1,6 +1,5 @@
 import React, { JSX, useEffect } from "react";
 import paper from "paper";
-import "./SignupForm.css";
 
 const SignupLogin: React.FC = (): JSX.Element => {
   useEffect(() => {

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import SignupLogin from "../component/SignupLogin"
 import LandingPage from "../component/LandingPage"
 import Dashboard from "../component/Dashboard"
-import Forum from "../component/Forum"
+import UsersPage from "../component/UsersPage"
 
 const App = () => {
 
@@ -11,7 +11,7 @@ const App = () => {
         <SignupForm />
         <LandingPage />
         <Dashboard />
-        <Forum />
+        <UsersPage />
         <p className='hi'>HI!</p>
         </div>
     );
