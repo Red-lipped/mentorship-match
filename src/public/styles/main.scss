@@ -14,9 +14,15 @@ body {
   }
 
 /* App Component**/
-.hi{
-    font: 800;
+.nav-links {
     color: black;
+    background-color: #03A9F4;
+    margin: '0 15px';
+    color: 'white';
+    text-decoration: none;
+    font-size: font-size-large;
+    padding: 10px;
+    margin-inline: 1rem;
 }
 
 /* Landing Component**/
