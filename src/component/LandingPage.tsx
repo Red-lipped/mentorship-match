@@ -25,6 +25,8 @@
 
 
 import React, { JSX } from "react";
+import Logo from "../../public/assets/Logo.png"
+
 
 interface LandingPageProps {
   onSignupClick: () => void;
@@ -33,6 +35,10 @@ interface LandingPageProps {
 const LandingPage = ({ onSignupClick }: LandingPageProps): JSX.Element => {
   return (
     <div className="landing-page">
+      <img
+        src= {Logo}
+        alt= "logo"
+        />
       <div className="landing-content">
         <h1>Welcome to Mentorship Match</h1>
         <p>Your journey to find the perfect mentor or mentee starts here.</p>
