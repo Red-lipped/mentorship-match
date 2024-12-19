@@ -11,7 +11,6 @@ const LandingPage = (): JSX.Element => {
         />
         <h1>Welcome to Mentorship-Match</h1>
       </header>
-      <p>This is the landing page</p>
 
       <ul className='landing-links'>
         <li>
