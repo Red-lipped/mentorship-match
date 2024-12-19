@@ -9,6 +9,7 @@ const userSchema = new Schema(
     password: { type: String, required: true },
     accountType: { type: String, required: true },
     email: { type: String, required: true, unique: true },
+    field: { type: Array, required: true, unique: true },
   },
   { timestamps: true }
 );

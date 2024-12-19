@@ -11,7 +11,7 @@ const router = express.Router();
 // User Signup Route
 router.post("/signup", async (req: Request, res: Response) => {
   try {
-    const { nickName, userName, password, accountType, email } = req.body;
+    const { nickName, userName, password, accountType, email, field } = req.body;
 
     // Check if the user already exists
     const existingUser = await UserModel.findOne({ userName });
@@ -29,6 +29,7 @@ router.post("/signup", async (req: Request, res: Response) => {
       password: hashedPassword,
       accountType,
       email,
+      field,
     });
 
     // Save the user to the database
@@ -86,21 +87,22 @@ router.post("/login", async (req: Request, res: Response) => {
 router.patch("/update/:id", async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
-    const { nickName, password, email } = req.body;
+    const { nickName, password, email, field } = req.body;
     console.log(nickName)
     console.log(password)
     console.log(email)
 
     // Validation for required fields
-    if (!nickName && (!email && !password)) {
+    if (!nickName && (!email && !password) && !field) {
       return res.status(400).json({ message: "Invalid input. Please provide the fields to update." });
     }
 
     // Update whether it's email OR password
-    const updates: Partial<{ nickName: string; email: string; password: string }> = {};
+    const updates: Partial<{ nickName: string; email: string; password: string ; field : string}> = {};
     if (email) updates.email = email;
     if (password) updates.password = await bcrypt.hash(password, 12); 
     if (nickName) updates.nickName = nickName;
+    if (field) updates.field = field;
 
     const userUpdate = await UserModel.findOneAndUpdate(
       { _id: id }, // search by user's id from database
