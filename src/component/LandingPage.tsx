@@ -1,6 +1,7 @@
 import React, { JSX } from "react";
 import  NavBar from "./NavBar";
 import Footer from "./Footer";
+import UsersPage from "./UsersPage";
 
 
 interface LandingPageProps {
@@ -52,6 +53,7 @@ const LandingPage = ({ onSignupClick }: LandingPageProps): JSX.Element => {
         <h1>Make your STEM connections today!</h1>
       </div>
       {/* <Footer/> */}
+      <UsersPage />
     </div>
   );
 };
