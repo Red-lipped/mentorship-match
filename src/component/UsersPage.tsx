@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';  
 
+// create simple list of Mentors
+// use searchbar to specify mentor
+// 
 interface User {
   _id : number,
   nickName: String,

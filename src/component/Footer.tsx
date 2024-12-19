@@ -1,9 +1,11 @@
 import React from 'react';
 
-export function Footer() {
+function Footer() {
   return (
     <footer className="page-footer">
       <p>&copy; {new Date().getFullYear()} Mentorship Match. All rights reserved.</p>
     </footer>
   );
 }
+
+export default Footer;

@@ -20,7 +20,7 @@ const __dirname = dirname(__filename);
 export default {
   mode: 'development',
   // tell Webpack where the entrypoint of our application is
-  entry: './src/client/index.js', //this will create a dependency graph
+  entry: './src/client/index.tsx', //this will create a dependency graph
 
   output: {
     path: path.join(__dirname, 'dist'),
