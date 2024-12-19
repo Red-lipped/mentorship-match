@@ -4,7 +4,7 @@ const Forum = ():JSX.Element => {
 
     return(
         <div className='dashboard'>
-        <p>HI!</p>
+        <p>Hi from the Dashboard!</p>
         </div>
     );
 }

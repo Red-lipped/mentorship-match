@@ -1,11 +1,13 @@
 import React, { JSX, useEffect, useState } from 'react';
+import Logo from '../../public/assets/Logo.png';
+// import Image from '../../public/assets/sigmund-unsplash.jpg';
 
 const LandingPage = (): JSX.Element => {
   return (
     <div className='landing'>
       <header className='landing-header'>
         <img
-          src='/assets/Logo.png'
+          src={Logo}
           alt='Mentorship Match Logo'
           className='landing-logo'
         />
@@ -15,19 +17,19 @@ const LandingPage = (): JSX.Element => {
       <ul className='landing-links'>
         <li>
           <h3>Join our mentee list</h3>
-          <img src="/assets/sigmund-unsplash.jpg" alt="Join our mentee list" className="link-img" />
+          {/* <img src={Image} alt="Join our mentee list" className="link-img" /> */}
         </li>
         <li>
           <h3>Check out our newest Mentors</h3>
-          <img src="/assets/sigmund-unsplash.jpg" alt="Check out our newest Mentors" className="link-img" />
+          {/* <img src={Image} alt="Check out our newest Mentors" className="link-img" /> */}
         </li>
         <li>
           <h3>Hear success stories</h3>
-          <img src="/assets/sigmund-unsplash.jpg" alt="Hear success stories" className="link-img" />
+          {/* <img src={Image} alt="Hear success stories" className="link-img" /> */}
         </li>
         <li>
           <h3>Watch growth and inspirational videos</h3>
-          <img src="/assets/sigmund-unsplash.jpg" alt="Watch growth and inspirational videos" className="link-img" />
+          {/* <img src={Image} alt="Watch growth and inspirational videos" className="link-img" /> */}
         </li>
       </ul>
 

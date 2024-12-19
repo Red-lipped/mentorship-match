@@ -29,9 +29,9 @@ export default {
 
   plugins: [
     new HTMLWebpackPlugin({
-      title: 'Template',
+      title: 'Mentorship Match',
       filename: 'index.html',
-      template: './src/public/index.html',
+      template: './public/index.html',
     }),
     new BundleAnalyzerPlugin(),
   ],
@@ -79,6 +79,7 @@ export default {
       },
       {
         test: /\.(png|jpeg|jpg|svg|gif)$/i, //i allows our file names to be case insensitive
+        use: ['file-loader'],
         type: 'asset/resource',
       },
     ],

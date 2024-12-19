@@ -10,7 +10,7 @@
     "sourceMap": true, //& generates .map files; maps compiled JS to TS (for debugging)
     "esModuleInterop": true, //& becuase ES6 modules and CommonJS modules work diff under the hood, modules imported via the 'require' keyword will ....
   },
-  "include": ["src/**/*", "server/**/*"], //& recursively includes all TS files within 'src' & subdirectories
+  "include": ["./src/**/*", "./server/**/*", "./public/**/*"], //& recursively includes all TS files within 'src', 'server', 'public' & subdirectories
   "exclude": ["node_modules", "dist"], //["**/*.db.json", "**/*.index.html", "**/*.style.css"]
 }
 

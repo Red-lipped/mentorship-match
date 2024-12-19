@@ -1,0 +1,96 @@
+* {
+    background-color: white;
+}
+
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 100 to 900
+
+body {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    // font-weight: <weight>;
+    font-style: normal;
+    text-align: center;
+  }
+
+/* App Component**/
+.hi{
+    font: 800;
+    color: black;
+}
+
+/* Landing Component**/
+.landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.landing-logo {
+  position: absolute; /* Allows the logo to be placed anywhere within the parent */
+  top: 20px; /* Distance from the top of the page */
+  left: 20px; /* Distance from the left of the page */
+  width: 80px;
+  height: auto;
+}
+
+.landing-links {
+  list-style: none; /* Remove default bullet points */
+  display: flex;
+  justify-content: space-around; /* Evenly space items horizontally */
+  padding: 0;
+  margin: 20px 0;
+  // width: 80%;
+}
+
+.landing-links li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px; /* Space between the image and text */
+}
+
+.landing-links h3 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+
+/* SignupLogin */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.signup-form,
+.login-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: 20px auto;
+}
+
+.signup-form label,
+.login-form label {
+  margin-bottom: 10px;
+}
+
+.signup-form button,
+.login-form button {
+  margin-top: 10px;
+}
+
+.login-background {
+  // background: url('path-to-your-image.jpg') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* SignupLogin */
