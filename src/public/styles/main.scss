@@ -20,9 +20,42 @@ body {
 }
 
 /* Landing Component**/
+.landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 
+.landing-logo {
+  position: absolute; /* Allows the logo to be placed anywhere within the parent */
+  top: 20px; /* Distance from the top of the page */
+  left: 20px; /* Distance from the left of the page */
+  width: 80px;
+  height: auto;
+}
 
+.landing-links {
+  list-style: none; /* Remove default bullet points */
+  display: flex;
+  justify-content: space-around; /* Evenly space items horizontally */
+  padding: 0;
+  margin: 20px 0;
+  // width: 80%;
+}
 
+.landing-links li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px; /* Space between the image and text */
+}
+
+.landing-links h3 {
+  font-size: 1.2rem;
+  margin: 0;
+}
 
 
 /* SignupLogin */
@@ -251,7 +284,7 @@ input {
 .form-checkbox {
   display: flex;
   align-items: center;
-  
+
   label {
     margin: 0 6px 0;
     font-size: 0.72em;
@@ -283,7 +316,7 @@ button {
     background: none;
     box-shadow: none;
     margin: 0;
-    
+
     &.signup {
       color: $theme-signup;
     }
