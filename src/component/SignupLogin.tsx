@@ -14,8 +14,8 @@ interface LoginFormData {
   password: string;
 }
 
-export function SignupForm() {
-  const [formData, setFormData] = useState<SignupFormData>({
+export default function SignupLoginPage() {
+  const [signupData, setSignupData] = useState<SignupFormData>({
     nickname: '',
     username: '',
     email: '',
@@ -24,142 +24,144 @@ export function SignupForm() {
     stemField: ''
   });
 
+  const [loginData, setLoginData] = useState<LoginFormData>({
+    username: '',
+    password: ''
+  });
+
   const stemFields = [
     'Computer Science',
     'Biology',
     'Chemistry',
     'Physics',
     'Math',
-    'Engineering'
+    'Enviromental Engineering',
   ];
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleSignupChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setSignupData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleLoginChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setLoginData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSignupSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle sign up logic
+    // signup logic
+  };
+
+  const handleLoginSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // login logic
   };
 
   return (
-    <form className="signup-form" onSubmit={handleSubmit}>
-      <h2>Sign Up</h2>
-      <label>
-        Nickname:
-        <input
-          type="text"
-          name="nickname"
-          value={formData.nickname}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Username:
-        <input
-          type="text"
-          name="username"
-          value={formData.username}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Email:
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-        />
-      </label>
-      <div>
-        <label>
-          <input
-            type="radio"
-            name="accountType"
-            value="mentor"
-            checked={formData.accountType === 'mentor'}
-            onChange={handleChange}
-          />
-          Mentor
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="accountType"
-            value="mentee"
-            checked={formData.accountType === 'mentee'}
-            onChange={handleChange}
-          />
-          Mentee
-        </label>
+    <div className="forms-page">
+      <div className="forms-container">
+        <form className="signup-form" onSubmit={handleSignupSubmit}>
+          <h2>Sign Up</h2>
+          <label>
+            Nickname:
+            <input
+              type="text"
+              name="nickname"
+              value={signupData.nickname}
+              onChange={handleSignupChange}
+            />
+          </label>
+          <label>
+            Username:
+            <input
+              type="text"
+              name="username"
+              value={signupData.username}
+              onChange={handleSignupChange}
+            />
+          </label>
+          <label>
+            Email:
+            <input
+              type="email"
+              name="email"
+              value={signupData.email}
+              onChange={handleSignupChange}
+            />
+          </label>
+          <div className="radio-group">
+            <label>
+              <input
+                type="radio"
+                name="accountType"
+                value="mentor"
+                checked={signupData.accountType === 'mentor'}
+                onChange={handleSignupChange}
+              />
+              Mentor
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="accountType"
+                value="mentee"
+                checked={signupData.accountType === 'mentee'}
+                onChange={handleSignupChange}
+              />
+              Mentee
+            </label>
+          </div>
+          <label>
+            Password:
+            <input
+              type="password"
+              name="password"
+              value={signupData.password}
+              onChange={handleSignupChange}
+            />
+          </label>
+          <label>
+            STEM Field:
+            <select
+              name="stemField"
+              value={signupData.stemField}
+              onChange={handleSignupChange}
+            >
+              <option value="">Select a field</option>
+              {stemFields.map(field => (
+                <option key={field} value={field}>
+                  {field}
+                </option>
+              ))}
+            </select>
+          </label>
+          <button type="submit">Sign Up</button>
+        </form>
+
+        <form className="login-form" onSubmit={handleLoginSubmit}>
+          <h2>Log In</h2>
+          <label>
+            Username:
+            <input
+              type="text"
+              name="username"
+              value={loginData.username}
+              onChange={handleLoginChange}
+            />
+          </label>
+          <label>
+            Password:
+            <input
+              type="password"
+              name="password"
+              value={loginData.password}
+              onChange={handleLoginChange}
+            />
+          </label>
+          <button type="submit">Log In</button>
+        </form>
       </div>
-      <label>
-        Password:
-        <input
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        STEM Field:
-        <select name="stemField" value={formData.stemField} onChange={handleChange}>
-          <option value="">Select a field</option>
-          {stemFields.map(field => (
-            <option key={field} value={field}>{field}</option>
-          ))}
-        </select>
-      </label>
-      <button type="submit">Sign Up</button>
-    </form>
-  );
-}
-
-export function LoginForm() {
-  const [formData, setFormData] = useState<LoginFormData>({
-    username: '',
-    password: ''
-  });
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // Handle login logic
-  };
-
-  return (
-    <div className="login-background">
-      <form className="login-form" onSubmit={handleSubmit}>
-        <h2>Log In</h2>
-        <label>
-          Username:
-          <input
-            type="text"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Password:
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-          />
-        </label>
-        <img src="/assets/Logo.png" alt="Logo" />
-        <button type="submit">Log In</button>
-      </form>
     </div>
   );
 }
-
