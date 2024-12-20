@@ -1,10 +1,10 @@
-import React, { useState, ChangeEvent, FormEvent } from 'react';
+import React, { useState, ChangeEvent, FormEvent } from "react";
 
 interface SignupFormData {
   nickname: string;
   username: string;
   email: string;
-  accountType: 'mentor' | 'mentee';
+  accountType: "mentor" | "mentee";
   password: string;
   stemField: string;
 }
@@ -14,48 +14,133 @@ interface LoginFormData {
   password: string;
 }
 
-export default function SignupLoginPage() {
+interface SignupLoginProps {
+  onLoginSuccess?: () => void; // Add this prop so we can call it after login
+}
+
+export default function SignupLoginPage({ onLoginSuccess }: SignupLoginProps) {
   const [signupData, setSignupData] = useState<SignupFormData>({
-    nickname: '',
-    username: '',
-    email: '',
-    accountType: 'mentor',
-    password: '',
-    stemField: ''
+    nickname: "",
+    username: "",
+    email: "",
+    accountType: "mentor",
+    password: "",
+    stemField: "",
   });
 
   const [loginData, setLoginData] = useState<LoginFormData>({
-    username: '',
-    password: ''
+    username: "",
+    password: "",
   });
 
   const stemFields = [
-    'Computer Science',
-    'Biology',
-    'Chemistry',
-    'Physics',
-    'Math',
-    'Enviromental Engineering',
+    "Biology",
+    "Chemistry",
+    "Computer Science",
+    "Physics",
+    "Math",
+    "Enviromental Science",
+    "Other",
   ];
 
-  const handleSignupChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleSignupChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
-    setSignupData(prev => ({ ...prev, [name]: value }));
+    setSignupData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleLoginChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setLoginData(prev => ({ ...prev, [name]: value }));
+    setLoginData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSignupSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSignupSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // signup logic
+
+    if (
+      !signupData.nickname ||
+      !signupData.username ||
+      !signupData.email ||
+      !signupData.password ||
+      !signupData.stemField
+    ) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:8080/users/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          nickName: signupData.nickname,
+          userName: signupData.username,
+          email: signupData.email,
+          accountType: signupData.accountType,
+          password: signupData.password,
+          field: signupData.stemField,
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        alert(`Signup failed: ${errorData.message}`);
+        return;
+      }
+
+      await response.json();
+      alert("Signup successful! You can now log in.");
+
+      setSignupData({
+        nickname: "",
+        username: "",
+        email: "",
+        accountType: "mentor",
+        password: "",
+        stemField: "",
+      });
+    } catch (error: any) {
+      alert(`Request failed: ${error.message}`);
+    }
   };
 
-  const handleLoginSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleLoginSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // login logic
+
+    if (!loginData.username || !loginData.password) {
+      alert("Please enter your username and password.");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:8080/users/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          userName: loginData.username,
+          password: loginData.password,
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        alert(`Login failed: ${errorData.message}`);
+        return;
+      }
+
+      const data = await response.json();
+
+      if (data.token) {
+        localStorage.setItem("authToken", data.token);
+        // Only call onLoginSuccess if it exists
+        if (onLoginSuccess) onLoginSuccess();
+      }
+
+      setLoginData({ username: "", password: "" });
+    } catch (error: any) {
+      alert(`Request failed: ${error.message}`);
+    }
   };
 
   return (
@@ -96,7 +181,7 @@ export default function SignupLoginPage() {
                 type="radio"
                 name="accountType"
                 value="mentor"
-                checked={signupData.accountType === 'mentor'}
+                checked={signupData.accountType === "mentor"}
                 onChange={handleSignupChange}
               />
               Mentor
@@ -106,7 +191,7 @@ export default function SignupLoginPage() {
                 type="radio"
                 name="accountType"
                 value="mentee"
-                checked={signupData.accountType === 'mentee'}
+                checked={signupData.accountType === "mentee"}
                 onChange={handleSignupChange}
               />
               Mentee
@@ -129,7 +214,7 @@ export default function SignupLoginPage() {
               onChange={handleSignupChange}
             >
               <option value="">Select a field</option>
-              {stemFields.map(field => (
+              {stemFields.map((field) => (
                 <option key={field} value={field}>
                   {field}
                 </option>

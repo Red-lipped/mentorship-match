@@ -1,7 +1,5 @@
 import React, { JSX } from "react";
-import  NavBar from "./NavBar";
-import Footer from "./Footer";
-import UsersPage from "./UsersPage";
+import Image from '../../public/assets/sigmund-unsplash.jpg';
 
 
 interface LandingPageProps {
@@ -11,7 +9,6 @@ interface LandingPageProps {
 const LandingPage = ({ onSignupClick }: LandingPageProps): JSX.Element => {
   return (
     <div className="landing-page">
-      {/* <NavBar /> */}
       <div className="landing-content">
         <h1>Welcome to Mentorship Match</h1>
         <p>Your journey to find the perfect mentor or mentee starts here.</p>
@@ -20,7 +17,7 @@ const LandingPage = ({ onSignupClick }: LandingPageProps): JSX.Element => {
           <li>
             <h3>Join our mentee list</h3>
             <img
-              src="public/assets/sigmund-unsplash.jpg"
+              src={Image}
               alt="Join our mentee list"
               className="link-img"
             />
@@ -28,7 +25,7 @@ const LandingPage = ({ onSignupClick }: LandingPageProps): JSX.Element => {
           <li>
             <h3>Check out our newest Mentors</h3>
             <img
-              src="public/assets/sigmund-unsplash.jpg"
+              src={Image}
               alt="Check out our newest Mentors"
               className="link-img"
             />
@@ -36,7 +33,7 @@ const LandingPage = ({ onSignupClick }: LandingPageProps): JSX.Element => {
           <li>
             <h3>Hear success stories</h3>
             <img
-              src="public/assets/sigmund-unsplash.jpg"
+              src={Image}
               alt="Hear success stories"
               className="link-img"
             />
@@ -44,7 +41,7 @@ const LandingPage = ({ onSignupClick }: LandingPageProps): JSX.Element => {
           <li>
             <h3>Watch growth and inspirational videos</h3>
             <img
-              src="public/assets/sigmund-unsplash.jpg"
+              src={Image}
               alt="Watch growth and inspirational videos"
               className="link-img"
             />
@@ -52,8 +49,6 @@ const LandingPage = ({ onSignupClick }: LandingPageProps): JSX.Element => {
         </ul>
         <h1>Make your STEM connections today!</h1>
       </div>
-      {/* <Footer/> */}
-      <UsersPage />
     </div>
   );
 };

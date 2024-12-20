@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "./dist",
-    // We typically aren't supposed to use bundler for the server
+    // We typically aren't supposed to use bundler for the server, but it's good for the frontend!
     // nodenext is usually for the backend
     "moduleResolution": "bundler",
     "jsx": "react-jsx", //& indicates that React's JSX syntax should be recognized
@@ -13,7 +13,7 @@
     "esModuleInterop": true, //& becuase ES6 modules and CommonJS modules work diff under the hood, modules imported via the 'require' keyword will ....
     "typeRoots": ["./node_modules/@types", "./types", "./server/types"] ,
   },
-  "include": ["./src/**/*", "./server/**/*", "./public/**/*", "./types/*.d.ts"], //& recursively includes all TS files within 'src', 'server', 'public' & subdirectories
+  "include": ["./src/**/*", "./server/**/*", "./public/**/*", "./types/*.d.ts"], //& recursively includes all TS files within 'src', 'server', 'public' & subdirectories -- we finally added the cutom.d.ts file
   "exclude": ["node_modules", "dist"], 
 }
 

@@ -1,43 +1,136 @@
 /*Default Styling**/
 * {
-    background-color: white;
+  background-color: #82a498; /* Soft green for LandingPage */
 }
-
 
 body {
     font-family: "Raleway", sans-serif;
     font-optical-sizing: auto;
-    // font-weight: <weight>;
     font-style: normal;
     text-align: center;
     background: rgb(34,193,195);
-  background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
   }
 
-/* App Component**/
+img{
+  height: 10%;
+  width: 10%;
+}
+
+
+// /* App Component**/
+.header {
+  position: sticky;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;  // Adjust the padding based on your design
+  background-color: #82a498; // Optional, for a background color
+  box-sizing: border-box;
+}
+
+.logo img {
+  height: auto;
+  max-height: 100px;
+  width: auto;
+  max-width: 100%;  // Prevents the image from overflowing if it's larger than the container
+}
+
 .nav {
   margin-top: 5rem;
 }
 
 .nav-links {
-    color: black;
-    background: rgb(34,193,195);
-    margin: '0 15px';
-    color: 'white';
+    color: #020090;
+    background: #C1CEE3;
+    margin: 0 15px;
+    color: white;
     text-decoration: none;
     font-size: font-size-large;
-    padding: 10px;
+    padding: 10px 20px;
     margin-inline: 1rem;
     border-radius: 2rem;
+    display: inline-block; 
+}
+.nav-links:hover {
+  background: #A0B9D9;  // Optional: change background on hover
 }
 
 /* LandingPage Component**/
-.landing {
+
+.landing-page {
+  flex: 1; /* Take all available space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  text-align: center;
+  color: rgb(35, 22, 22); /* Default text color */
+  background-color: #82a498;
+  min-height: 100vh;
+  margin: 0; /* Remove any default margin */
+  padding: 0;
+}
+
+.landing-content button {
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #f5e6cc; /* Soft crème color */
+  color: #333; /* Dark text for contrast */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    background-color: #ebd8b3; /* Slightly darker crème on hover */
+    transform: scale(1.05); /* Subtle zoom effect */
+  }
+  &:active {
+    background-color: #d6c4a7; /* Even darker crème when pressed */
+    transform: scale(1); /* Reset zoom effect */
+  }
+}
+
+
+
+.landing-logo {
+  position: absolute; /* Allows the logo to be placed anywhere within the parent */
+  top: 20px; /* Distance from the top of the page */
+  left: 20px; /* Distance from the left of the page */
+  width: 80px;
+  height: auto;
+}
+
+.landing-links {
+  list-style: none; /* Remove default bullet points */
+  display: flex;
+  justify-content: space-around; /* Evenly space items horizontally */
+  padding: 0;
+  margin: 0;
+  // width: 80%;
+}
+
+.landing-links li {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  gap: 10px; /* Space between the image and text */
 }
+
+.landing-links h3 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+// .landing-page {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   text-align: center;
+// }
 
 .landing-logo {
   position: absolute; /* Allows the logo to be placed anywhere within the parent */
@@ -69,38 +162,76 @@ body {
   margin: 0;
 }
 
+.landing-links img {
+  height: 20em;
+  width: 20em;
+  border-radius: 50%;
+  margin: 2em;
+}
+
+.landing-links ul{
+  display: flex;
+}
 
 /* SignupLogin */
 
-.forms-page {
+
+.signup-login-page {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f7f6; 
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.signup-form,
-.login-form {
+.forms-page {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.forms-container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  width: 100%;
+}
+
+.signup-form, .login-form {
   display: flex;
   flex-direction: column;
-  max-width: 300px;
-  margin: 20px auto;
+  max-width: 350px;
+  width: 100%;
 }
 
-.signup-form label,
-.login-form label {
+.signup-form h2, .login-form h2 {
+  margin-bottom: 20px;
+}
+
+.signup-form label, .login-form label {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.radio-group {
+  display: flex;
+  gap: 10px;
   margin-bottom: 10px;
 }
 
-.signup-form button,
-.login-form button {
+button {
   margin-top: 10px;
   padding: 8px;
   cursor: pointer;
-  background: rgba(253,187,45,1);
 }
 
 
-/* ProfileDashboard Styling */
+// /* ProfileDashboard Styling */
 
 
 
