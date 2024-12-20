@@ -6,7 +6,9 @@ import NavBar from "../component/NavBar";
 import Forum from "../component/ProfileDashboard";
 import UsersPage from "../component/UsersPage"; 
 
+
 const App = () => {
+  // declaring default states and setter functions
   const [showSignup, setShowSignup] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showForum, setShowForum] = useState(false);
@@ -19,6 +21,7 @@ const App = () => {
     setShowForum(true);
   };
 
+  // HTML to render the App component
   return (
     <div className="page-container">
       <NavBar />

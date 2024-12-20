@@ -33,30 +33,11 @@ mongoose
 import userRouter from './routes/users.js'
 app.use('/users', userRouter);
 
-// Attempting to serve static files
-app.use(express.static('../public/assets'));
+// Serve all static files in our public folder
+app.use(express.static('../public/*'));
 
 
-// CREATE
-app.post('/', (req: Request, res: Response):void => {
-  const { name } = req.body;
-
-  res.status(201).json({ message: `Welcome ${name}` });
-});
-
-// READ
-app.get('/', (req: Request, res: Response):void => {
-  console.log('here');
-  res.status(200).json({ message: 'GET request ran successfully.' });
-});
-
-// UPDATE
-app.put('/update', (req: Request, res: Response):void => {});
-
-// DELETE
-app.delete('/delete', (req: Request, res: Response):void => {});
-
-// global error handler
+// Global Error Handler
 app.use(
   '/',
   (

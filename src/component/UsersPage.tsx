@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from './NavBar';
 
-// create simple list of Mentors
-// use searchbar to specify mentor
+//! Goals of this component: create simple list of Mentors, use searchbar to specify mentor.
+// The interface is necessary to detail the types in the User object
 interface User {
   _id: number;
   nickName: String;
@@ -12,7 +12,7 @@ interface User {
   email: String;
   field: Array<string>;
 }
-
+// This defines the fields in our drop-down menu
 const stemFields = [
   'Computer Science',
   'Biology',
@@ -22,11 +22,14 @@ const stemFields = [
   'Environmental Engineering',
 ];
 
+// This begins the definition of the component
 function UsersPage() {
+  // declaring default state and setter functions
   const [users, setUsers] = useState<User[]>([]); // Set type to User[]
   const [searchTerm, setSearchTerm] = useState<string>(''); // Define the type explicitly
   const [selectedField, setSelectedField] = useState<string>(''); // Dropdown selection
 
+  // Async function allows us to fetch mentors from our server path
   const fetchUsers = async () => {
     try {
       const response = await fetch(`http://localhost:3000/users/page`); // /users/page
@@ -49,14 +52,17 @@ function UsersPage() {
     fetchUsers();
   }, []); // Empty dependency array ensures this runs only once
 
+  // When the client interacts with the search bar, we will target the input value
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
   };
 
+    // When the client interacts with the drop down menu, we will target the input value
   const handleFieldChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedField(event.target.value);
   };
 
+  // Logic to ensure client views information based on the specified terms they search for
   const filteredUsers = users.filter((user: User) => {
     const search = searchTerm.toLowerCase();
     const matchesSearch =
@@ -72,7 +78,6 @@ function UsersPage() {
 
   return (
     <div>
-      {/* <NavBar /> */}
       <h1>Find your mentor</h1>
 
       <div className='searchbar-container'>

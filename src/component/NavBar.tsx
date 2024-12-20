@@ -1,4 +1,4 @@
-import React from 'react';
+// We are able to import the Logo static image and refer to it in the header
 import Logo from "../../public/assets/Logo.png";
 
 function NavBar() {

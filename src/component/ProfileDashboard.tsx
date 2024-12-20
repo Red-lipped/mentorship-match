@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Avatar from '../../public/assets/avatarplaceholder.jpg'
+
+// The interface is necessary to detail the types in the User object
 interface User {
   _id: number;
   nickName: string;
@@ -11,13 +13,16 @@ interface User {
 }
 
 export default function Forum() {
+    // declaring default states and setter fucntions
   const [userData, setUserData] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
+    // this allows us to update our page based on the user date we receive
   useEffect(() => {
     const fetchUserData = async () => {
       try {
+        // JWT stored in React local storage to be used during the session
         const token = localStorage.getItem("authToken");
         if (!token) {
           setError("No token found. Please log in.");
@@ -38,6 +43,7 @@ export default function Forum() {
         }
 
         const user: User = await response.json();
+        // We reset the states
         setUserData(user);
         setLoading(false);
       } catch (err: any) {
@@ -45,10 +51,10 @@ export default function Forum() {
         setLoading(false);
       }
     };
-
     fetchUserData();
   }, []);
 
+//   Conditional Rendering Logic
   if (loading)
     return (
       <div className="dashboard">
@@ -69,6 +75,7 @@ export default function Forum() {
       </div>
     );
 
+    // HTML elements rendered to the page
   return (
     <div className="dashboard">
       <h1>Profile Dashboard</h1>

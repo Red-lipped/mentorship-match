@@ -3,8 +3,6 @@
 import path from 'path';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
-// testing w/ Aissata to debug
-// import CopyPlugin from 'copy-webpack-plugin';
 
 // allowing us to use dotenv
 import dotenv from 'dotenv';
@@ -36,15 +34,6 @@ export default {
       template: './public/index.html',
     }),
     new BundleAnalyzerPlugin(),
-  //   new CopyPlugin({
-  //     patterns: [
-  //         {
-  //             from: path.resolve(__dirname, 'public', 'assets'),
-  //             to: path.join(__dirname, 'dist', 'images'),
-  //             noErrorOnMissing: true
-  //         }
-  //     ]
-  // }),
   ],
 
   devtool: 'source-map', // this allows us to see what files are taking up a certain amt of space

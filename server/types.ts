@@ -1,15 +1,12 @@
+// This is used for any custom types in our server.ts file.
+
+
+// Any error logged will follow the types in this ServerError object
 export type ServerError = {
     log: string;
     message: {err: string};
     status: number;
   }
 
- export interface User {
-    _id : number,
-    nickName: String,
-    userName: String,
-    password: String,
-    accountType: String,
-    email: String,
-    field: Array<string>,
-  }
+
+  
