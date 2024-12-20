@@ -1,5 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 
+// This interface is necessary to declare the types in the SignupFormData object
 interface SignupFormData {
   nickname: string;
   username: string;
@@ -8,17 +9,19 @@ interface SignupFormData {
   password: string;
   stemField: string;
 }
-
+// This interface is necessary to declare the types in the LoginFormData object
 interface LoginFormData {
   username: string;
   password: string;
 }
-
+// This interface is necessary to declare the types in the SignupLoginProps object
 interface SignupLoginProps {
   onLoginSuccess?: () => void; // Add this prop so we can call it after login
 }
 
+// We create and export our SignupLoginPage component
 export default function SignupLoginPage({ onLoginSuccess }: SignupLoginProps) {
+  // Declaring default states and setter functions
   const [signupData, setSignupData] = useState<SignupFormData>({
     nickname: "",
     username: "",

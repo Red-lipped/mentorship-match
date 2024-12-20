@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
-// we create a Schema for the user account
+// we create a database model for the user account
 const userSchema = new Schema(
   {
     nickName: { type: String, required: true },

@@ -2,11 +2,11 @@
   "compilerOptions": {
     "outDir": "./dist",
     // We typically aren't supposed to use bundler for the server, but it's good for the frontend!
-    // nodenext is usually for the backend
+    // nodenext is usually for the backend, which we changed the moduleResolution originally from
     "moduleResolution": "bundler",
     "jsx": "react-jsx", //& indicates that React's JSX syntax should be recognized
     "target": "ES6", //& this is ES6
-    "module": "ES2022", //& Olivia suggests to use "NodeNext" as CommonJS is outdated
+    "module": "ES2022", //& Olivia suggested at a previous time to use "NodeNext" as CommonJS is outdated
     "noImplicitAny": true, //&requires that variables/params have explicit types
     "removeComments": true, //& removes all comments from compiled JS
     "sourceMap": true, //& generates .map files; maps compiled JS to TS (for debugging)
@@ -14,7 +14,7 @@
     "typeRoots": ["./node_modules/@types", "./types", "./server/types"] ,
   },
   "include": ["./src/**/*", "./server/**/*", "./public/**/*", "./types/*.d.ts"], //& recursively includes all TS files within 'src', 'server', 'public' & subdirectories -- we finally added the cutom.d.ts file
-  "exclude": ["node_modules", "dist"], 
+  "exclude": ["node_modules", "dist", "./*.env**"], //& we do not need to include our ignored files in the compilation
 }
 
-// tsx might be simpler to use
+// tsx might be simpler to use in terms of running TSX for our server files

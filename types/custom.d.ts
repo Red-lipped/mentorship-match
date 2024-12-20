@@ -1,3 +1,4 @@
+// This file is a custom types set for our images to be rendered as modules. This is necessary for Typescript. 
 declare module "*.jpg"{
     // the value represents a file path
     const value:string;

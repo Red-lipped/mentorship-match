@@ -1,7 +1,8 @@
-import React, { JSX } from "react";
+import { JSX } from "react";
+// We are able to import the stock static image and refer to it in the landing page
 import Image from '../../public/assets/sigmund-unsplash.jpg';
 
-
+// The interface is necessary in order to provide a type of the onSignupClick function
 interface LandingPageProps {
   onSignupClick: () => void;
 }

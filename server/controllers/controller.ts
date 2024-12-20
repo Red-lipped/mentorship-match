@@ -1,6 +1,9 @@
+// This is our middleware for our users router, specifically the GET request
+
 import { Request, Response, NextFunction } from 'express';  
 import jwt from 'jsonwebtoken';  
 
+// this allows us to use the JWT to see if the token is valid
 export const controller = {  
     verifyToken: async (req: Request, res: Response, next: NextFunction) => {  
         const authHeader = req.headers['authorization'];  
