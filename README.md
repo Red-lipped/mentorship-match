@@ -7,11 +7,12 @@ We bring a platform in order to give users the opportunity to become mentors, or
 ---
 ## Technical Features:
 - [Express (Node.js)](https://expressjs.com/) - Our backend framework for our server, routers, and controllers.
+- [JSON Web Tokens](https://jwt.io/) - User authentication tool.
 - [MongoDB](https://www.mongodb.com/) - Our NOSQL database to store user information.
 - [Mongoose](https://mongoosejs.com/) - For object modeling of our database.
 - [React.js](https://react.dev/) - The frontend framework to allow for conditional rendering and reusable components.
 - [TypeScript](https://www.typescriptlang.org/) - Used as our main programming language for this project
-- [Webpack](https://webpack.js.org/) - Our build tool in order  
+- [Webpack](https://webpack.js.org/) - Our build tool in order to have our files render in the browser appropriately.
 
 ### Team Members:
 - [Ashley Bisram](https://github.com/ashleybisram)
